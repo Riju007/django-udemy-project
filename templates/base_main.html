@@ -14,22 +14,6 @@
    </title>
 </head>
 <body>
-    {# create a navigation bar #}
-    <nav class="navbar navbar-dark bg-dark">
-        <a href="#" class="navbar-brand">Food App</a>
-        <div class="navbar">
-            <a href="{% url 'food:item_create_view' %}" class="nav-item nav-link">Add Item</a>
-            <a href="#" class="nav-item nav-link">Delete Item</a>
-            <a href="#" class="nav-item nav-link">View Item</a>
-        </div>
-    </nav>
-    {% if messages %}
-        {% for message in messages %}
-            <div class="alert alert-{{ message.tags }}">
-                {{ message }}
-            </div>
-        {% endfor %}
-    {% endif %}
     {% block content %}
     {% endblock content %}
 </body>
