@@ -1,0 +1,22 @@
+{% extends 'food/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<form method="POST">
+    {% csrf_token %}
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                {{ form.item_name|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.item_price|as_crispy_field }}
+            </div>
+        </div>
+        {{ form.item_desc|as_crispy_field }}
+        {{ form.item_image|as_crispy_field }}
+        <button type="submit" class="btn btn-success">Save</button>
+    </div>
+</form>
+
+{% endblock content %}
