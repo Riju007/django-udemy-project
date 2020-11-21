@@ -1,0 +1,6 @@
+{% extends 'base_main.html' %}
+
+{% block content %}
+    <h1>{{ user.username }}</h1>
+    <img src="{{ user.profile.image.url }}" alt="img" height="100px" width="100px">
+{% endblock content %}

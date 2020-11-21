@@ -126,3 +126,15 @@ STATIC_URL = '/static/'
 
 # django-crispy-form settings
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# variables related to user account
+# redirect the user to the home page after login
+LOGIN_REDIRECT_URL = 'food:home'
+
+# Inform django about the login URL
+LOGIN_URL = 'login'
+
+# location for the media files
+MEDIA_ROOT = os.path.join(BASE_DIR, 'pictures')
+# URL for the media
+MEDIA_URL = '/pictures/'
