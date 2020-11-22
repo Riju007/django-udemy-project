@@ -1,11 +1,15 @@
-""" View for the app food."""
+"""View for the app food."""
 from django.shortcuts import redirect, render
 
 from food.models import Item
 from food.forms import ItemForm
 
 
-# Create your views here.
+def home(request):
+    """Home page for the food app."""
+    return render(request, 'food/home.html')
+
+
 def list_item(request):
     """List of all the food items."""
     item_list = Item.objects.all()
@@ -13,12 +17,7 @@ def list_item(request):
         'item_list': item_list,
     }
     # render method signature - render(request, template_name, context)
-    return render(request, 'food/index.html', context)
-
-
-def home(request):
-    """Home page for the food app."""
-    return render(request, 'food/home.html')
+    return render(request, 'food/item_list.html', context)
 
 
 def view_item(request, item_id):

@@ -1,4 +1,7 @@
-{% extends 'food/base.html' %}
+{% extends 'base.html' %}
+{% block title %}
+    Homepage
+{% endblock title %}
 {% block content %}
     <div class="jumbotron">
         <h1>
@@ -6,6 +9,8 @@
                 This is the home page for our food app
             </strong>
         </h1>
-        <a href="{% url 'food:food_list_view' %}">Food menu</a>
+        <a href="{% url 'food:food_list_view' %}">
+            <strong><u>Food Menu</u></strong>
+        </a>
     </div>
 {% endblock content %}

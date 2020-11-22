@@ -2,15 +2,13 @@
 from django.urls import path
 
 from food.views import (
-    list_item, view_item, create_item, update_item, delete_item, home
+    list_item, view_item, create_item, update_item, delete_item
 )
-
 
 # namespacing
 app_name = 'food'
 
 urlpatterns = [
-    path("", home, name='home'),
     path("item-list/", list_item, name='food_list_view'),
     path('item-detail/<int:item_id>/', view_item, name='item_detail_view'),
     # add items

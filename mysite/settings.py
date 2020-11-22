@@ -129,10 +129,10 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # variables related to user account
 # redirect the user to the home page after login
-LOGIN_REDIRECT_URL = 'food:home'
+LOGIN_REDIRECT_URL = 'home'
 
 # Inform django about the login URL
-LOGIN_URL = 'login'
+LOGIN_URL = 'users:login'
 
 # location for the media files
 MEDIA_ROOT = os.path.join(BASE_DIR, 'pictures')
