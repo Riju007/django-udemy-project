@@ -2,17 +2,19 @@
 from django.urls import path
 
 from food.views import (
-    list_item, view_item, create_item, update_item, delete_item
+    update_item, delete_item, FoodListView, FoodDetailView, FoodCreateView
 )
 
 # namespacing
 app_name = 'food'
 
 urlpatterns = [
-    path("item-list/", list_item, name='food_list_view'),
-    path('item-detail/<int:item_id>/', view_item, name='item_detail_view'),
+    path("item-list/", FoodListView.as_view(), name='food_list_view'),
+    path(
+        'item-detail/<int:pk>/',
+        FoodDetailView.as_view(), name='item_detail_view'),
     # add items
-    path('item-create/', create_item, name='item_create_view'),
+    path('item-create/', FoodCreateView.as_view(), name='item_create_view'),
     # edit item
     path('item-update/<int:id>/', update_item, name='item_update_view'),
     # delete
