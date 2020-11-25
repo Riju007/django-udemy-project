@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load crispy_forms_tags %}
+{# {% load crispy_forms_tags %} #}
 
 {% block title %}
     create-item
@@ -7,21 +7,43 @@
 
 {% block content %}
 
-<form method="POST">
-    {% csrf_token %}
-    <div class="container">
-        <div class="row">
-            <div class="col-6">
-                {{ form.item_name|as_crispy_field }}
-            </div>
-            <div class="col-6">
-                {{ form.item_price|as_crispy_field }}
+<div class="container">
+    <div class="card">
+        <div class="card-header bg-info text-white text-center">
+            <div class="card-title">
+                <strong>New Food Item</strong>
             </div>
         </div>
-        {{ form.item_desc|as_crispy_field }}
-        {{ form.item_image|as_crispy_field }}
-        <button type="submit" class="btn btn-success">Save</button>
+        <div class="card-body">
+            <div class="row">
+                <form method="POST">
+                    {% csrf_token %}
+                    {% for field in form.visible_fields %}
+                        {% if field.name == 'item_name' or field.name == 'item_price' %}
+                            <div class="col-md-4 offset-md-4">
+                                <div class="form-group">
+                                    {{ field.name }}
+                                    {{ field }}
+                                </div>
+                            </div>
+                        {% elif field.name == 'item_image' %}
+                            <div class="form-group form-control-file">
+                                {{ field.name }}
+                                {{ field }}
+                          </div>
+                        {% else %}
+                            <div class="form-group">
+                                <label for="item_desc">Item Description</label>
+                                {{ field }}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                    <button type="submit" class="btn btn-success float-right">Create</button>
+                </form>
+            </div>
+        </div>
     </div>
-</form>
+</div>
+
 
 {% endblock content %}
