@@ -18,15 +18,21 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
+from rest_framework import routers
 
 # local imports
 from food.views import home
+from movies.views import MovieViewSet
+
+router = routers.DefaultRouter()
+router.register('movies', MovieViewSet)
 
 urlpatterns = [
     path('', home, name='home'),
     path('admin/', admin.site.urls),
     path('food/', include('food.urls')),
     path('users/', include('users.urls')),
+    path('', include(router.urls)),
 ]
 
 # helper to serve the media files during development phaser(when debug is True)

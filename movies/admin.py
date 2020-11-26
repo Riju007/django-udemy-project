@@ -1,3 +1,6 @@
+"""Admin file for the app movies."""
 from django.contrib import admin
 
-# Register your models here.
+from movies.models import MovieData
+
+admin.site.register(MovieData)

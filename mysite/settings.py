@@ -40,8 +40,10 @@ INSTALLED_APPS = [
     # local apps
     'food.apps.FoodConfig',
     'users.apps.UsersConfig',
+    'movies.apps.MoviesConfig',
     # 3rd party
     'crispy_forms',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
