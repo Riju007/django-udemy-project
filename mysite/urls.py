@@ -22,10 +22,12 @@ from rest_framework import routers
 
 # local imports
 from food.views import home
-from movies.views import MovieViewSet
+from movies.views import ActionViewSet, ComedyViewSet, MovieViewSet
 
-router = routers.DefaultRouter()
+router = routers.SimpleRouter()
 router.register('movies', MovieViewSet)
+router.register('action', ActionViewSet)
+router.register('comedy', ComedyViewSet)
 
 urlpatterns = [
     path('', home, name='home'),
